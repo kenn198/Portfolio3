@@ -1,54 +1,63 @@
 <template>
   <section class="portfolio-home">
     <header class="portfolio-header">
-      <h1>John Doe</h1>
+      <h1>Ken Tay</h1>
       <p>Web Developer & Designer</p>
     </header>
 
     <section class="portfolio-intro">
       <p>
-        Hello! I'm John, a passionate web developer with over 5 years of experience. I love creating responsive and user-friendly websites. Check out my projects below!
+        Hello! I'm Ken, a passionate web developer with over a years worth of experience. I love creating responsive and user-friendly websites. Check out my projects below!
       </p>
     </section>
 
     <section class="portfolio-projects">
-      <h2>My Projects</h2>
+      <h2>Click my projects to find out more</h2>
       <div class="projects-grid">
-        <div class="project-card" v-for="project in projects" :key="project.id">
-          <img :src="project.image" :alt="project.name" />
-          <h3>{{ project.name }}</h3>
-          <p>{{ project.description }}</p>
-        </div>
+          <li v-for="project in projects" :key="project.id" class="project-card">
+            <router-link :to="'/project/' + project.id ">
+              <div class="project-content">
+                <h3>{{ project.name }}</h3>
+                <img :src="project.image" :alt="project.name" />
+                <p>{{ project.description }}</p>
+              </div>
+            </router-link>
+          </li>
       </div>
     </section>
 
     <footer class="portfolio-footer">
-      <p>Thank you for visiting! Let's <a href="mailto:john@example.com">connect</a>.</p>
+      <p>Thank you for visiting! Let's <a href="taykenneth198@gmail.com">connect</a>.</p>
     </footer>
   </section>
 </template>
+
 
 <script setup>
 import { ref } from 'vue';
 
 import projectImage1 from '../assets/images/diego-ph-fIq0tET6llw-unsplash.jpg';
+import Fitness from '../assets/logo2.png';
+import vue from '../assets/logo.svg';
 
 
 const projects = ref([
   {
     id: 1,
-    name: 'Project One',
-    description: 'A description of project one.',
-    image: projectImage1
+    name: 'Vue Concepts',
+    description: 'The goal was to showcase an implementation of what vue has to offer.',
+    image: vue
   },
   {
     id: 2,
-    name: 'Project Two',
-    description: 'A description of project two.',
-    image: projectImage1
+    name: 'Fitness website',
+    description: 'Created a checklist of exercises to do, with google maps api to find the nearest gym and a contact system that links to mongodB.',
+    image: Fitness
   },
   // ... add more projects as needed
 ]);
+
+
 </script>
 
 <style scoped>
@@ -85,9 +94,11 @@ const projects = ref([
 }
 
 .project-card {
-  border: 1px solid #e0e0e0;
+  border: 1px solid #000000;
+  background-color: lightblue;
   border-radius: 8px;
   overflow: hidden;
+  transition: transform 0.2s ease-in-out; /* Add a smooth transform transition */
 }
 
 .project-card img {
@@ -95,11 +106,29 @@ const projects = ref([
   height: auto;
 }
 
-.project-card h3 {
+.project-content {
+  padding: 20px;
   text-align: center;
-  padding: 10px 0;
 }
 
+.project-card h3 {
+  font-size: 1.2em; /* Increase font size */
+  margin-bottom: 10px;
+  transition: color 0.3s; /* Add a smooth color transition */
+}
+
+/* Hover effect styles */
+.project-card:hover {
+  transform: scale(1.05); /* Scale up the card on hover */
+}
+
+.project-card:hover h3 {
+  color: #3498db; /* Change text color on hover */
+}
+
+.portfolio-footer {
+  text-align: center;
+}
 .portfolio-footer {
   text-align: center;
 }

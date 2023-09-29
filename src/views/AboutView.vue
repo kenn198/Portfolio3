@@ -1,22 +1,22 @@
 <template>
   <section class="about-me-page">
     <div class="profile-image">
-      <img src="../assets/images/diego-ph-fIq0tET6llw-unsplash.jpg" alt="Your Name" class="hover-effect">
+      <img src="../assets/images/Self.jpg" alt="Your Name" class="hover-effect">
     </div>
     <div class="about-content">
       <h1>About Me</h1>
       <p>
-        Hello! I'm [Your Name], a passionate web developer with over [X years] of experience in creating dynamic and responsive websites. I specialize in [specific technologies or fields, e.g., "React, Vue.js, and Node.js"].
+        Hello! I'm Ken, a passionate web developer with over a years worth of experience in creating dynamic and responsive websites. I specialize in Unreal engine, Unity, C++, C#, blueprint, vue.js, react and redux .
       </p>
       <p>
-        I graduated from [Your University or School] with a degree in [Your Degree]. Since then, I've worked with various clients and companies, delivering high-quality web solutions.
+        I graduated from Deakin University with a degree in Information Technology. Since then, I've worked with various clients and companies, delivering high-quality web solutions.
       </p>
       <p>
-        In my free time, I love [your hobbies, e.g., "hiking, reading tech blogs, and exploring new coffee shops"].
+        In my free time, I love creating games and exploring ways to create games and voluteer at churches for charity works.
       </p>
-      <button class="download-btn">Download My Resume</button>
+      <a href="https://www.linkedin.com/in/kenneth-tay-a4a298201/" class="download-btn">Visit my LinkedIn</a>
       <p>
-        Thank you for visiting my portfolio. If you'd like to collaborate or just chat, feel free to <a href="mailto:your-email@example.com">reach out</a>!
+        Thank you for visiting my portfolio. If you'd like to collaborate or just chat, feel free to <a href="taykenneth198@gmail.com">reach out</a>!
       </p>
     </div>
   </section>
@@ -43,6 +43,7 @@
 .profile-image {
   flex: 1;
   padding-right: 50px;
+  margin-left :10%;
 }
 
 .profile-image img.hover-effect {
@@ -85,7 +86,7 @@
 
 .download-btn {
   display: inline-block;
-  background-color: #e74c3c;
+  background-color: #e0d429;
   color: #fff;
   padding: 10px 20px;
   border-radius: 5px;
@@ -95,6 +96,6 @@
 }
 
 .download-btn:hover {
-  background-color: #c0392b;
+  background-color: #1794e7;
 }
 </style>
