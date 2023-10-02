@@ -1,37 +1,73 @@
 <template>
-    <footer class="amazing-footer">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h4>About Us</h4>
-          <p>We are a team of passionate developers and designers dedicated to creating the best web experiences.</p>
-        </div>
-        <div class="footer-section">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </div>
-        <div class="footer-section">
-          <h4>Contact Info</h4>
-          <p><i class="fas fa-map-marker-alt"></i> 123 Street, City, Country</p>
-          <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-          <p><i class="fas fa-envelope"></i> contact@example.com</p>
-        </div>
+  <footer class="amazing-footer">
+    <div class="footer-content">
+      <!-- Moto section will be hidden on screens smaller than 600px -->
+      <div class="footer-section" v-if="isMotoVisible">
+        <h4>Moto</h4>
+        <p>Strife for greatness as hope starts with you</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2023 Amazing Company. All rights reserved.</p>
+      <!-- Quick Links will be hidden on screens smaller than 300px -->
+      <div class="footer-section" v-if="isQuickLinksVisible">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><RouterLink class="nav-link" to="/">Home</RouterLink></li>
+          <li><RouterLink class="nav-link" to="/about">About</RouterLink></li>
+          <li><RouterLink class="nav-link" to="/portfolio">Portfolio</RouterLink></li>
+          <li><RouterLink class="nav-link" to="/contact">Contact Us</RouterLink></li>
+        </ul>
       </div>
-    </footer>
-  </template>
-  
-  <script setup>
-  // You can add any reactive properties or methods if needed.
-  </script>
+      <div class="footer-section">
+        <h4>Contact Info</h4>
+        <p>Find me on social media.</p>
+        <a href="https://facebook.com" target="_blank">
+          <img :src="facebook" class="facebook">
+        </a>
+        <a href="https://discord.com" target="_blank">
+          <img :src="discord" class="discord">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+          <img :src="twitter" class="twitter">
+        </a>
+        <a href="https://www.linkedin.com/in/kenneth-tay-a4a298201/" target="_blank">
+          <img :src="linkin" class="linkin">
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy;2023-2023 Ken Tay All Rights Reserved.</p>
+    </div>
+  </footer>
+</template>
+
+<script setup>
+import { ref, onMounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import facebook from '../assets/icon/facebook.png';
+import discord from '../assets/icon/discord.png';
+import twitter from '../assets/icon/twitter.png';
+import linkin from '../assets/icon/linkedin.png';
+
+const route = useRoute();
+
+// Reactive property to determine screen size
+const windowWidth = ref(window.innerWidth);
+
+// Update windowWidth on window resize
+window.addEventListener('resize', () => {
+  windowWidth.value = window.innerWidth;
+});
+
+// Define breakpoints for hiding elements
+const motoBreakpoint = 600;
+const quickLinksBreakpoint = 300;
+
+// Computed properties to determine visibility of elements
+const isMotoVisible = computed(() => windowWidth.value >= motoBreakpoint);
+const isQuickLinksVisible = computed(() => windowWidth.value >= quickLinksBreakpoint);
+</script>
   
   <style scoped>
+  
   .amazing-footer {
     background-color: #2c3e50;
     color: #ecf0f1;

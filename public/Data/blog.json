@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "title": "First Blog Post",
+    "description": "This is the description of the first blog post."
+  },
+  {
+    "id": 2,
+    "title": "Second Blog Post",
+    "description": "This is the description of the second blog post."
+  }
+]

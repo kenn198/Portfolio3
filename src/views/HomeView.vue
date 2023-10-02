@@ -13,6 +13,8 @@
 
     <section class="portfolio-projects">
       <h2>Click my projects to find out more</h2>
+      <h1 v-if="isLogin" class="Loggedin">You are logged in!</h1>
+      <h1 v-else class="Loggedout">You are not logged in!</h1>
       <div class="projects-grid">
           <li v-for="project in projects" :key="project.id" class="project-card">
             <router-link :to="'/project/' + project.id ">
@@ -33,33 +35,37 @@
 </template>
 
 
-<script setup>
-import { ref } from 'vue';
-
-import projectImage1 from '../assets/images/diego-ph-fIq0tET6llw-unsplash.jpg';
-import Fitness from '../assets/logo2.png';
-import vue from '../assets/logo.svg';
-
-
-const projects = ref([
-  {
-    id: 1,
-    name: 'Vue Concepts',
-    description: 'The goal was to showcase an implementation of what vue has to offer.',
-    image: vue
+<script>
+import { computed } from 'vue';
+import { isLogin } from './auth/store';
+export default {
+  data() {
+    return {
+      projects: [],
+    };
   },
-  {
-    id: 2,
-    name: 'Fitness website',
-    description: 'Created a checklist of exercises to do, with google maps api to find the nearest gym and a contact system that links to mongodB.',
-    image: Fitness
+  computed: {
+    isLogin() {
+      return isLogin.value;
+    },
   },
-  // ... add more projects as needed
-]);
-
-
+  mounted() {
+    fetch('../../public/Data/project.json')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        this.projects = data;
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  },
+};
 </script>
-
 <style scoped>
 .portfolio-home {
   font-family: 'Arial', sans-serif;
@@ -131,5 +137,11 @@ const projects = ref([
 }
 .portfolio-footer {
   text-align: center;
+}
+.Loggedin{
+  color: Green;
+}
+.Loggedout{
+  color: Red;
 }
 </style>
