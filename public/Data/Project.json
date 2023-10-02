@@ -15,7 +15,7 @@
       "id": 3,
       "name": "Login System",
       "description": "A login system that uses localstorage to store user data.",
-      "image": "../src/assets/logo3.png"
+      "image": "/logo3.png"
     },
     {
       "id": 4,
