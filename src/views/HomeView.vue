@@ -50,7 +50,7 @@ export default {
     },
   },
   mounted() {
-    fetch('../../public/Data/project.json')
+    fetch('../../public/Data/Project.json')
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
