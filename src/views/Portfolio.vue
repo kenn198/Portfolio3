@@ -2,7 +2,7 @@
   <div class="cv-container">
     <div class="cv-sidebar">
       <div class="cv-profile">
-        <img src="../assets/images/self.jpg" alt="Avatar">
+        <img src="../assets/images/Self.jpg" alt="Avatar">
         <h2>Ken Tay</h2>
         <p>Game Designer and Web Developer</p>
         <p>Melbourne, VIC</p>
