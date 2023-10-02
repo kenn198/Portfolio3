@@ -3,13 +3,13 @@
       "id": 1,
       "name": "Vue Concepts",
       "description": "The goal was to showcase an implementation of what Vue has to offer.",
-      "image": "../src/assets/logo.svg"
+      "image": "/logo.svg"
     },
     {
       "id": 2,
       "name": "Fitness website",
       "description": "Created a checklist of exercises to do, with Google Maps API to find the nearest gym and a contact system that links to MongoDB.",
-      "image": "../src/assets/logo2.png"
+      "image": "/logo2.png"
     },
     {
       "id": 3,
@@ -21,6 +21,6 @@
       "id": 4,
       "name": "Blog Post",
       "description": "Blog post that can be edited and deleted when loggedin using localstorage.",
-      "image": "../src/assets/Blog.png"
+      "image": "/Blog.png"
     }
   ]
